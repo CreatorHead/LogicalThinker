@@ -22,6 +22,7 @@ public class DoublyLinkedList {
 	}
 	
 	public void add(int data, int position) {
+		if(position > length) return;
 		if(position == 0) {
 			Node newNode = new Node(data);
 			head.prev = newNode;
@@ -29,6 +30,25 @@ public class DoublyLinkedList {
 			head = newNode;
 			length++;
 			return;
+		}
+		if(position == length) {
+			add(data);
+			return;
+		}
+		
+		if(position <= length-1) {
+			Node currentNode = head;
+			for(int i= 0;i<= position;i++, currentNode = currentNode.next) {
+				if(i == position) {
+					Node newNode = new Node(data,null,null);
+					newNode.next = currentNode;
+					newNode.prev = currentNode.prev;
+					currentNode.prev = newNode;
+					newNode.prev.next = newNode;
+					length++;
+					return;
+				}
+			}
 		}
 	}
 
@@ -77,6 +97,7 @@ public class DoublyLinkedList {
 	}
 	
 	public static void main(String[] args) {
+		
 		DoublyLinkedList list = new DoublyLinkedList();
 		list.add(5);
 		list.add(6);
@@ -97,6 +118,19 @@ public class DoublyLinkedList {
 		System.out.println("reverse Traverse");
 		list.reverseTraverse();
 		System.out.println("length: " + list.length());
-		
+		System.out.println("Adding 11 at the end of list");
+		list.add(11,4);
+		System.out.println("traverse");
+		list.traverse();
+		System.out.println("reverse Traverse");
+		list.reverseTraverse();
+		System.out.println("length: " + list.length());
+		System.out.println("adding node in position: 3 and value = 13");
+		list.add(13,3);
+		System.out.println("traverse");
+		list.traverse();
+		System.out.println("reverse Traverse");
+		list.reverseTraverse();
+		System.out.println("length: " + list.length());
 	}
 }

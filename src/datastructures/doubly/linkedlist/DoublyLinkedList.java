@@ -52,6 +52,43 @@ public class DoublyLinkedList {
 		}
 	}
 
+	public void remove(int position) {
+		if(position >=length) {
+			return;
+		}
+		if(position == 0) {
+			Node currentNode = head;
+			head = currentNode.next;
+			currentNode.next = null;
+			head.prev = null;
+			length--;
+			return;
+		}
+		
+		if(position == length-1) {
+			Node currentNode = tail;
+			tail = currentNode.prev;
+			currentNode.prev = null;
+			tail.next = null;
+			length--;
+			return;
+		}
+		if(position <= length-2) {
+			Node currentNode = head;
+			System.out.println("Head: " + currentNode.data);
+			for(int i=1;i<=length-2;i++,currentNode = currentNode.next ) {
+				if(position == i) {
+					currentNode.prev.next = currentNode.next;
+					currentNode.next.prev = currentNode.prev;
+					currentNode.prev = null;
+					currentNode.next = null;
+					length--;
+					return;
+					
+				}
+			}
+		}
+	}
 	
 	public void traverse() {
 		Node currentNode = head;
@@ -127,6 +164,34 @@ public class DoublyLinkedList {
 		System.out.println("length: " + list.length());
 		System.out.println("adding node in position: 3 and value = 13");
 		list.add(13,3);
+		System.out.println("traverse");
+		list.traverse();
+		System.out.println("reverse Traverse");
+		list.reverseTraverse();
+		System.out.println("length: " + list.length());
+		System.out.println("Remove first node from the list");
+		list.remove(0);
+		System.out.println("traverse");
+		list.traverse();
+		System.out.println("reverse Traverse");
+		list.reverseTraverse();
+		System.out.println("length: " + list.length());
+		System.out.println("Removing the last node from the list");
+		list.remove(list.length-1);
+		System.out.println("traverse");
+		list.traverse();
+		System.out.println("reverse Traverse");
+		list.reverseTraverse();
+		System.out.println("length: " + list.length());
+		System.out.println("Removing index which is not present");
+		list.remove(4);
+		System.out.println("traverse");
+		list.traverse();
+		System.out.println("reverse Traverse");
+		list.reverseTraverse();
+		System.out.println("length: " + list.length());
+		System.out.println("removing a node from the list Posintion: 2");
+		list.remove(2);
 		System.out.println("traverse");
 		list.traverse();
 		System.out.println("reverse Traverse");

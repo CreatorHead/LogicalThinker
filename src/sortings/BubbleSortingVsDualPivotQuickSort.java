@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @author User
- * Bubble sort has worst-case and average complexity both О(n2),
+ * Bubble sort has worst-case and average complexity both О(n^2),
  *  where n is the number of items being sorted. There exist many sorting algorithms 
  *  with substantially better worst-case or average complexity of O(n log n). 
  *  Even other О(n2) sorting algorithms, such as insertion sort, 
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class BubbleSortingVsDualPivotQuickSort {
 	public static void main(String[] args) {
-		int numbersToSort = 10000;
+		int numbersToSort = 100000;
 		int lineCounter = 0;
 		int[] arr = new int[numbersToSort];
 		int[] arr1 = new int[numbersToSort];

@@ -1,19 +1,18 @@
 package sortings;
 
 public class MergeSort {
-
 	private int[] array;
 	private int[] tempMergArr;
 	private int length;
 
-		
+
 	public void sort(int inputArr[]) {
 		this.array = inputArr;
 		this.length = inputArr.length;
 		this.tempMergArr = new int[length];
 		doMergeSort(0, length - 1);
 	}
-	
+
 
 	private void doMergeSort(int lowerIndex, int higherIndex) {
 
@@ -27,14 +26,14 @@ public class MergeSort {
 			mergeParts(lowerIndex, middle, higherIndex);
 		}
 	}	
-	
-	
+
+
 	private void mergeParts(int lowerIndex, int middle, int higherIndex) {
 
 		int i = lowerIndex;
 		int j = middle + 1;
 		int k = lowerIndex;
-		
+
 		//copy of the original array into the temp array
 		for (int z = lowerIndex; z <= higherIndex; z++) {
 			tempMergArr[z] = array[z];

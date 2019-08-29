@@ -1,6 +1,6 @@
 package datastructures.singly.linkedlist;
 
-public class LinkedList {
+public class SinglyLinkedList {
 	private Node head;
 	private int length;
 	
@@ -86,7 +86,7 @@ public class LinkedList {
 		return length;
 	}
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		SinglyLinkedList list = new SinglyLinkedList();
 		list.append(34);
 		list.append(34);
 		list.append(332);

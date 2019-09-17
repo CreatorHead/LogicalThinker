@@ -1,5 +1,10 @@
 package datastructure.binary.tree.unballanced;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinarySearchTreeUnbalanced {
 	private Node root;
 
@@ -7,6 +12,27 @@ public class BinarySearchTreeUnbalanced {
 
 	public BinarySearchTreeUnbalanced(int key) {
 		add(key);
+	}
+
+	
+	public List<Node> breadthFirstSearch(){
+		if(this.root == null) {
+			return null;
+		}
+		List<Node> visited = new ArrayList<Node>();
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(this.root);
+		while(!queue.isEmpty()) {
+			Node node = queue.remove();
+			visited.add(node);
+			if(node.getLeft() != null) {
+				queue.add(node.getLeft());
+			}
+			if(node.getRight() != null) {
+				queue.add(node.getRight());
+			}
+		}
+		return visited;
 	}
 
 	public int findLowestValue() {
@@ -93,19 +119,47 @@ public class BinarySearchTreeUnbalanced {
 		return node;
 	}
 
-	public void preOrder() {
-		Node node = this.root;
-		preOrder(node);
+	public List<Node> preOrder(){
+		List<Node> list = new ArrayList<Node>();
+		preOrder(this.root,list);
+		return list;
 	}
-
-	public void preOrder(Node node) {
-		if(node != null) {
-			preOrder(node.getLeft());
-			System.out.println(node.getKey());
-			preOrder(node.getRight());
+	private void preOrder(Node node, List<Node> list) {
+		if(node == null) {
+			return;
 		}
+		list.add(node);
+		preOrder(node.getLeft(),list);
+		preOrder(node.getRight(),list);
 	}
 	
+	public List<Node> postOrder(){
+		List<Node> list = new ArrayList<Node>();
+		postOrder(this.root,list);
+		return list;
+	}
+	private void postOrder(Node node, List<Node> list) {
+		if(node == null) {
+			return;
+		}
+		postOrder(node.getLeft(),list);
+		postOrder(node.getRight(),list);
+		list.add(node);
+	}
+	
+	public List<Node> inOrder(){
+		List<Node> list = new ArrayList<Node>();
+		inOrder(this.root,list);
+		return list;
+	}
+	private void inOrder(Node node, List<Node> list) {
+		if(node == null) {
+			return;
+		}
+		inOrder(node.getLeft(),list);
+		list.add(node);
+		inOrder(node.getRight(),list);
+	}
 	public void remove(int key) {
 		Node node = this.root;
 		remove(node,key);
@@ -123,7 +177,7 @@ public class BinarySearchTreeUnbalanced {
 			node.setLeft(remove(node.getLeft(),key));
 		}else if(key > node.getKey()) {
 			node.setRight(remove(node.getRight(),key));
-			
+
 		}else {
 			return node;
 		}

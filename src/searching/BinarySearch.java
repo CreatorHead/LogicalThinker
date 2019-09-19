@@ -11,13 +11,16 @@ public class BinarySearch {
 	//Recursive solution
 	public static int binarySearch(int[] arr,int low,int high,int data) {
 		int mid = low + (high - low)/2;
-		if(arr[mid] == data) {
-			return mid;
-		}else if(arr[mid] < data) {
-			return binarySearch(arr,mid+1,high,data);
-		}else {
-			return binarySearch(arr,low,mid-1,data);
+		if(low <= high) {
+			if(arr[mid] == data) {
+				return mid;
+			}else if(arr[mid] < data) {
+				return binarySearch(arr,mid+1,high,data);
+			}else {
+				return binarySearch(arr,low,mid-1,data);
+			}
 		}
+		return -1;
 	}
 	
 	

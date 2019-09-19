@@ -14,6 +14,22 @@ public class BinarySearchTreeUnbalanced {
 		add(key);
 	}
 
+	public int maxDepth() {
+		return maxDepth(this.root);
+	}
+	private int maxDepth(Node node) {
+		if(node == null) {
+			return 0;
+		}else {
+			int leftDepth = maxDepth(node.getLeft());
+			int rightDepth = maxDepth(node.getRight());
+			if(leftDepth > rightDepth) {
+				return leftDepth + 1;
+			}else {
+				return rightDepth + 1;
+			}
+		}
+	}
 	
 	public List<Node> breadthFirstSearch(){
 		if(this.root == null) {

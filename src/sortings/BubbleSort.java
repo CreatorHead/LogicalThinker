@@ -37,6 +37,13 @@ public class BubbleSort {
 		return arr;
 	}
 
+	
+	/**
+	 * Optimized bubble sort which can detect if the given 
+	 * array is already sorted
+	 * @param arr
+	 * @return
+	 */
 	public static int[] bubbleSortOptimized(int[] arr) {
 		int temp = 0;
 		boolean noSwap = true;

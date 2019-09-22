@@ -7,11 +7,11 @@ public class InsertionSort {
 	public static void main(String[] args) {
 		int[] i = {3,2,54,2,1,656,23,1};
 		System.out.println("Before Sorting:"+Arrays.toString(i));
-		i = sort(i);
+		i = insertionSsort(i);
 		System.out.println("After Sorting:"+Arrays.toString(i));
 	}
 	
-	public static int[] sort(int[] arr){
+	public static int[] insertionSsort(int[] arr){
 		if(arr.length == 2) {
 			if(arr[0] > arr[1]) {
 				int temp = arr[0];

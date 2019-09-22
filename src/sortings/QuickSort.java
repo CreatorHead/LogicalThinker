@@ -17,7 +17,7 @@ public class QuickSort {
 	}
 	
 	
-	/*
+	/**
 	 * This method implements in-place quicksort algorithm recursively.
 	 */
 	private void quickSort(int low, int high) {
@@ -41,6 +41,7 @@ public class QuickSort {
 			while (input[j] > pivot) {
 				j--;
 			}
+			
 			if (i <= j) {
 				swap(i, j);
 				// move index to next position on both sides

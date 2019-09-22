@@ -66,7 +66,7 @@ public class BigONotation {
 	public static Long addUpTo(Long number) {
 		Long total = 0L;
 		for(Long i = 0L;i<=number;i++) {
-			total += total;
+			total +=  i;
 		}
 		return total;
 	}

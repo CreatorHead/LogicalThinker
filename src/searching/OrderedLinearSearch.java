@@ -10,6 +10,8 @@ public class OrderedLinearSearch {
 		int index = search(i,5);
 		System.out.println(index);
 	}
+	
+	
 	public static int search(int[] arr,int data){
 		for(int i=0;i<arr.length;i++){
 			if(data == arr[i]){
@@ -21,3 +23,6 @@ public class OrderedLinearSearch {
 		return -1;
 	}
 }
+
+
+

@@ -57,6 +57,11 @@ public class MergeSort {
 			k++;
 			i++;
 		}
+		while (j <= higherIndex) {
+			array[k] = tempMergArr[j];
+			k++;
+			j++;
+		}
 	}
 
 }

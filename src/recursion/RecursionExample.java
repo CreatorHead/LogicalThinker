@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import com.sun.glass.ui.View.Capability;
 
 public class RecursionExample {
 

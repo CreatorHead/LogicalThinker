@@ -6,8 +6,29 @@ import java.util.HashMap;
 public class MyArrays {
 	
 	public static void main(String[] args) {
-		int i = maxSubArraySum(new int[] {1,2,5,2,8,1,5}, 2);
-		System.out.println(i);
+		int[] i = new int[] {1,2,54,5,2,6,2,6,2,1,2,9,8,10,1,5};
+		System.out.println(findDuplicateNums(i));
+	}
+	
+	public static String findDuplicateNums(int[] arr) {
+		int temp[] = Arrays.copyOf(arr, arr.length);
+		Arrays.sort(temp);
+		System.out.println(Arrays.toString(temp));
+		String res = "";
+		int p1 = 0;
+		int p2 = 1;
+		while(p2 < temp.length) {
+			if(temp[p1] == temp[p2]) {
+				p2++;
+			}else {
+				if(p2-p1 > 1) {
+					res = res + temp[p1];					
+				}
+				p1 = p2;
+				p2= p1+1;
+			}
+		}
+		return res;
 	}
 	
 	//Sliding window

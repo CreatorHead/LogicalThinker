@@ -2,7 +2,6 @@ package com.test.mymethods;
 
 import java.time.Instant;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.InterningXmlVisitor;
 
 public class MyRandomNumbers {
 	public static void main(String[] args) {

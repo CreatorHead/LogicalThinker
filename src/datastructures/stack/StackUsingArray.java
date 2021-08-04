@@ -1,11 +1,11 @@
 package datastructures.stack;
 
-public class Stack {
+public class StackUsingArray {
 	private int maxSize;
 	private long[] stackArray;
 	private int top;
 
-	public Stack(int size) {
+	public StackUsingArray(int size) {
 		maxSize = size;
 		stackArray = new long[maxSize];
 		top = -1;

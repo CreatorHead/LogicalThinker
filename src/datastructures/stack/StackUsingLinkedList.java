@@ -23,14 +23,13 @@ public class StackUsingLinkedList {
 		
 		Node node = new Node(data);
 		
-		if(top == null) {
-			currLen++;
-			top = node;
-		}
-		
 		node.next = top;
 		top = node;
 		currLen++;
+	}
+	
+	public boolean isEmpty() {
+		return top == null;
 	}
 	
 	public int pop() throws Exception {
@@ -47,11 +46,12 @@ public class StackUsingLinkedList {
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);
+		System.out.println("Is Empty: " + stack.isEmpty());
 		
 		System.out.println(stack.pop());
 		System.out.println(stack.pop());
 		System.out.println(stack.pop());
-		
+		System.out.println("Is Empty: " + stack.isEmpty());
 		
 	}
 	

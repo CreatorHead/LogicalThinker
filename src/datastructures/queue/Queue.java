@@ -1,6 +1,17 @@
 package datastructures.queue;
 
 public class Queue {
+	
+	class Node {
+		int data;
+		Node next;
+		
+		Node(int data){
+			this.data = data;
+		}
+	}
+
+	
 	private Node head; 
 	private Node tail;
 	
@@ -14,13 +25,16 @@ public class Queue {
 	
 	public void add(int data){
 		Node node = new Node(data);
-		if(tail != null){
-			tail.next = node;
-		}
-		tail = node;
-		if(head == null){
+		
+		if(head == null) {
 			head = node;
+			tail = node;
+			return;
 		}
+		
+		tail.next = node;
+		tail = node;
+		
 	}
 	
 	public int remove(){
@@ -30,5 +44,16 @@ public class Queue {
 			tail = null;
 		}
 		return data;
+	}
+	
+	public static void main(String[] args) {
+		Queue queue = new Queue();
+		queue.add(1);
+		queue.add(2);
+		queue.add(3);
+		
+		System.out.println(queue.remove());
+		System.out.println(queue.remove());
+		System.out.println(queue.remove());
 	}
 }
